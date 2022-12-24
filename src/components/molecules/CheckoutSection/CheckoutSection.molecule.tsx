@@ -1,6 +1,6 @@
 //#region IMPORTS
 import { Button, Card, CardBody, Typography } from "@material-tailwind/react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ProductContext } from "../../../contexts/ProductProvider";
 //#endregion
 
