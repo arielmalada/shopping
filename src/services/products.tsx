@@ -19,7 +19,7 @@ export interface ProductTypes {
 }
 
 export interface ProductsTypes {
-  products: ProductTypes;
+  products: ProductTypes[];
   total: number;
   skip: number;
   limit: number;

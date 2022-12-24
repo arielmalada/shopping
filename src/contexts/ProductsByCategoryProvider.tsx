@@ -3,7 +3,7 @@ import {
   getProductsByCategory,
   ProductsTypes,
 } from "../services/products";
-export const ProductsContext = createContext<ProductsTypes | undefined>(
+export const ProductsByCategoryContext = createContext<ProductsTypes | undefined>(
   undefined
 );
 
@@ -21,8 +21,8 @@ export const ProductsByCategoryProvider: React.FC<Props> = (props) => {
     });
   }, []);
   return (
-    <ProductsContext.Provider value={ProductData}>
+    <ProductsByCategoryContext.Provider value={ProductData}>
       {props.children}
-    </ProductsContext.Provider>
+    </ProductsByCategoryContext.Provider>
   );
 };
