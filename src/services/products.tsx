@@ -42,3 +42,12 @@ export const getAllProducts = async () => {
     console.log(error);
   }
 };
+
+export const getProductsByCategory = async (category: string, params?: string) => {
+  try {
+    const res: AxiosResponse<ProductsTypes> = await get(`products/category/${category}?${params || ""}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};

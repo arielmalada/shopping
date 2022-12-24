@@ -6,6 +6,7 @@ import {
   ProductContext,
   ProductProvider,
 } from "../../contexts/ProductProvider";
+import { ProductsByCategoryProvider } from "../../contexts/ProductsByCategoryProvider";
 //#endregion
 
 //#region SECONDARY COMPONENT
@@ -72,14 +73,16 @@ const CheckoutSection: React.FC = () => {
 const DetailPage: React.FC = () => {
   return (
     <ProductProvider>
-      <div>
-        <section className="flex items-center justify-center space-x-10 xl:max-w-5xl">
-          <Pictures />
-          <Data />
-          <CheckoutSection />
-        </section>
-        <section>related</section>
-      </div>
+      <ProductsByCategoryProvider>
+        <div>
+          <section className="flex items-center justify-center space-x-10 xl:max-w-5xl">
+            <Pictures />
+            <Data />
+            <CheckoutSection />
+          </section>
+          <section>related</section>
+        </div>
+      </ProductsByCategoryProvider>
     </ProductProvider>
   );
 };
