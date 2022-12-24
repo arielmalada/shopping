@@ -9,7 +9,10 @@ const DetailPage: React.FC = () => {
 
   return (
     <div>
-      detail page
+      <section>pictures</section>
+      <section>data</section>
+      <section>price and button</section>
+      <section>related</section>
     </div>
   );
 };
