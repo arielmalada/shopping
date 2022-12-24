@@ -79,10 +79,10 @@ const CheckoutSection: React.FC = () => {
         Math.round(productValue.price * productValue.discountPercentage * 0.01)
       : productValue?.price;
   return (
-    <Card>
+    <Card className="w-full text-center lg:w-56">
       <CardBody className="space-y-2">
         <Typography variant="h4">$ {finalPrice}</Typography>
-        <Button>Add to Cart</Button>
+        <Button fullWidth>Add to Cart</Button>
       </CardBody>
     </Card>
   );
@@ -94,8 +94,8 @@ const RelatedProductItem: React.FC<RelatedProductItemTypes> = ({
   price,
 }) => {
   return (
-    <Card className="w-96">
-      <CardHeader color="blue" className="relative h-56">
+    <Card className=" w-96">
+      <CardHeader color="blue" className="relative h-20 lg:h-56">
         <img src={image} alt={title} className="w-full h-full" />
       </CardHeader>
       <CardBody className="text-center">
@@ -114,7 +114,7 @@ const RelatedSection: React.FC = () => {
   const relatedProducts = useContext(ProductsByCategoryContext);
   if (relatedProducts?.products)
     return (
-      <section className="flex space-x-2 max">
+      <section className="flex px-2 pt-10 pb-4 space-x-2 overflow-x-auto">
         {relatedProducts.products.map((item) => (
           <RelatedProductItem
             image={item.thumbnail}
@@ -133,8 +133,8 @@ const DetailPage: React.FC = () => {
   return (
     <ProductProvider>
       <ProductsByCategoryProvider>
-        <div className="xl:max-w-5xl">
-          <section className="flex items-center justify-center mb-20 space-x-10">
+        <div className="mx-4 my-10 lg:mx-auto lg:max-w-5xl">
+          <section className="flex flex-col items-center justify-center mb-20 space-y-4 lg:space-x-10 lg:flex-row">
             <PicturesSection />
             <DataSection />
             <CheckoutSection />
