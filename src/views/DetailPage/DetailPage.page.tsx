@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import React, { useContext } from "react";
+import CheckoutSection from "../../components/molecules/CheckoutSection";
 import {
   ProductContext,
   ProductProvider,
@@ -71,23 +72,6 @@ const DataSection: React.FC = () => {
   );
 };
 
-const CheckoutSection: React.FC = () => {
-  const productValue = useContext(ProductContext);
-  const isPriceReduced = (productValue?.discountPercentage || 0) > 0;
-  const finalPrice =
-    isPriceReduced && productValue
-      ? productValue.price -
-        Math.round(productValue.price * productValue.discountPercentage * 0.01)
-      : productValue?.price;
-  return (
-    <Card className="w-full text-center lg:w-56">
-      <CardBody className="space-y-2">
-        <Typography variant="h4">$ {finalPrice}</Typography>
-        <Button fullWidth>Add to Cart</Button>
-      </CardBody>
-    </Card>
-  );
-};
 
 const RelatedProductItem: React.FC<RelatedProductItemTypes> = ({
   image,
