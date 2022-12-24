@@ -33,6 +33,7 @@ const PicturesSection: React.FC = () => {
     <img
       src={productValue?.thumbnail}
       alt={productValue?.title || "empty image"}
+      className="object-cover w-64 h-64 rounded"
     />
   );
 };
