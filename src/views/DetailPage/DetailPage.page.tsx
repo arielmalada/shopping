@@ -1,7 +1,6 @@
 //#region IMPORTS
 
 import {
-  Button,
   Card,
   CardBody,
   CardHeader,
@@ -9,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 import React, { useContext } from "react";
 import CheckoutSection from "../../components/molecules/CheckoutSection";
+import PictureSection from "../../components/molecules/PictureSection";
 import {
   ProductContext,
   ProductProvider,
@@ -28,16 +28,6 @@ type RelatedProductItemTypes = {
 //#endregion
 
 //#region SECONDARY COMPONENT
-const PicturesSection: React.FC = () => {
-  const productValue = useContext(ProductContext);
-  return (
-    <img
-      src={productValue?.thumbnail}
-      alt={productValue?.title || "empty image"}
-      className="object-cover w-64 h-64 rounded"
-    />
-  );
-};
 
 const DataSection: React.FC = () => {
   const productValue = useContext(ProductContext);
@@ -120,7 +110,7 @@ const DetailPage: React.FC = () => {
       <ProductsByCategoryProvider>
         <div className="mx-4 my-10 lg:mx-auto lg:max-w-5xl">
           <section className="flex flex-col items-center justify-center mb-20 space-y-4 lg:space-x-10 lg:flex-row">
-            <PicturesSection />
+            <PictureSection />
             <DataSection />
             <CheckoutSection />
           </section>

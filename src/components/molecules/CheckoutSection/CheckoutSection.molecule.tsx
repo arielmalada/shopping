@@ -10,6 +10,7 @@ type CheckoutSectionTypes = {
  
 };
 //#endregion
+
 //#region MAIN COMPONENTS
 const CheckoutSection: React.FC<CheckoutSectionTypes> = ({onClick}) => {
   const productValue = useContext(ProductContext);
