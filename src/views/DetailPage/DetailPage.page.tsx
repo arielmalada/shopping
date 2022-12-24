@@ -1,19 +1,32 @@
 //#region IMPORTS
 
-import React from "react";
+import React, { useContext } from "react";
+import { ProductContext, ProductProvider } from "../../contexts/ProductProvider";
+//#endregion
 
+//#region SECONDARY COMPONENT
+const Pictures: React.FC = () => {
+  const productValue = useContext(ProductContext);
+  return(
+    <img src={productValue?.thumbnail} alt={productValue?.title || "empty image"}/>
+  )
+}
 //#endregion
 
 //#region MAIN COMPONENT
 const DetailPage: React.FC = () => {
-
   return (
-    <div>
-      <section>pictures</section>
-      <section>data</section>
-      <section>price and button</section>
-      <section>related</section>
-    </div>
+    <ProductProvider>
+      <div>
+        <section className="flex items-center justify-center space-x-10 xl:max-w-5xl">
+          <Pictures/>
+          <section>data</section>
+          <section>price and button</section>
+      
+        </section>
+        <section>related</section>
+      </div>
+    </ProductProvider>
   );
 };
 //#endregion
