@@ -1,5 +1,5 @@
 //#region IMPORTS
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ProductContext } from "../../../contexts/ProductProvider";
 //#endregion
 
