@@ -9,8 +9,9 @@ const NewProducts: React.FC = () => {
   if (products?.products)
     return (
       <div>
-        <div>
-          Homepage
+        <div className="flex justify-between px-2">
+          <div>New Items</div>
+          <div>View All</div>
         </div>
         <section className="flex px-2 pt-10 pb-4 space-x-2 overflow-x-auto">
           {products.products.map((item) => (
@@ -18,6 +19,7 @@ const NewProducts: React.FC = () => {
               image={item.thumbnail}
               title={item.title}
               price={item.price}
+              id={item.id}
             />
           ))}
         </section>

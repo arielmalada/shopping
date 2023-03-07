@@ -2,6 +2,7 @@
 
 import { Button } from "@material-tailwind/react";
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import CheckoutSection from "../../components/molecules/CheckoutSection";
 import DataSection from "../../components/molecules/DataSection";
 import PictureSection from "../../components/molecules/PictureSection";
@@ -13,6 +14,7 @@ import { ProductTypes } from "../../services/products";
 
 //#region MAIN COMPONENT
 const DetailPage: React.FC = () => {
+  const { productID } = useParams();
   const [cartData, setCartData] = useState<ProductTypes[]>([]);
   const handleClickAddtoCart = (data: ProductTypes) => {
     // concat the data
@@ -22,8 +24,9 @@ const DetailPage: React.FC = () => {
     // reset the cart
     setCartData([])
   }
+  if(!productID) return null;
   return (
-    <ProductProvider>
+    <ProductProvider productID={productID}>
       <ProductsByCategoryProvider>
         <div>
           <div className="absolute space-x-1 right-2 lg:right-8">
