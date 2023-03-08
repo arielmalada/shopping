@@ -6,16 +6,17 @@ export const ProductContext = createContext<ProductTypes | undefined>(
 
 interface Props {
   children: React.ReactNode;
+  productID: string;
 }
 
 export const ProductProvider: React.FC<Props> = (props) => {
   const [ProductData, setProductData] = useState<ProductTypes | undefined>();
   useEffect(() => {
     // use id 1 as an example
-    getProduct(1).then((res) => {
+    getProduct(props.productID).then((res) => {
       setProductData(res?.data);
     });
-  }, []);
+  }, [props.productID]);
   return (
     <ProductContext.Provider value={ProductData}>
       {props.children}
