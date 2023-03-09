@@ -21,7 +21,7 @@ type ProductItemTypes = {
 //#region MAIN COMPONENTS
 const ProductItem: React.FC<ProductItemTypes> = ({ id, image, title, price }) => {
   return (
-    <Card className="min-w-[40vw]">
+    <Card className="min-h-[40vw] min-w-[40vw] md:min-w-0 md:col-span-3 md:min-h-0 ">
       <Link to={`/detail/${id}`}>
         <CardHeader color="blue" className="relative h-20 lg:h-56">
           <img src={image} alt={title} className="object-cover w-full h-full" />
