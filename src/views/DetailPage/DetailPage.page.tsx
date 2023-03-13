@@ -1,6 +1,9 @@
 //#region IMPORTS
 
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, IconButton } from "@material-tailwind/react";
 import React, { useState } from "react";
@@ -37,18 +40,24 @@ const DetailPage: React.FC = () => {
             <IconButton variant="text" onClick={() => navigate(-1)} size="lg">
               <FontAwesomeIcon icon={faChevronLeft} />
             </IconButton>
-            <div className="space-x-1">
-              <Button className="space-x-1" onClick={handleClickCartButton}>
-                <span>Shopping Cart</span>
+            <div>
+              <IconButton
+                variant="text"
+                className="flex space-x-1"
+                onClick={handleClickCartButton}
+              >
+                <FontAwesomeIcon icon={faCartShopping} />
                 <span>{cartData.length > 0 && cartData.length}</span>
-              </Button>
+              </IconButton>
             </div>
           </div>
-          <div className="mx-4 my-10 lg:mx-auto lg:max-w-5xl">
+          <div className="lg:mx-auto lg:max-w-5xl">
             <section className="flex flex-col items-center justify-center mb-20 space-y-4 lg:space-x-10 lg:flex-row">
               <PictureSection />
-              <DataSection />
-              <CheckoutSection onClick={handleClickAddtoCart} />
+              <div className="grid grid-cols-12 gap-2 px-4">
+                <DataSection />
+                <CheckoutSection onClick={handleClickAddtoCart} />
+              </div>
             </section>
             <RelatedSection />
           </div>

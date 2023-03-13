@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 
 //#region TYPES
 type SaleItemTypes = {
+  discount: number;
   id: string;
   price: number;
   image: string;
@@ -19,7 +20,8 @@ type SaleItemTypes = {
 //#endregion
 
 //#region MAIN COMPONENTS
-const SaleItem: React.FC<SaleItemTypes> = ({ id, image, price, title }) => {
+const SaleItem: React.FC<SaleItemTypes> = ({ id, discount, image, price, title }) => {
+  const finalPrice = discount ? price * (1-(discount * 0.01)) : price;
   if (!image) return null;
   return (
     <Card
@@ -33,9 +35,9 @@ const SaleItem: React.FC<SaleItemTypes> = ({ id, image, price, title }) => {
           color="transparent"
           className="absolute inset-0 m-0 rounded-none"
         >
-          <div className="absolute top-0 right-0 px-2 py-1 space-x-1 font-bold bg-teal-200 text-md md:text-lg">
+          <div className="absolute top-0 px-2 py-1 space-x-1 font-bold text-white bg-red-700 right-3 text-md md:text-lg">
             <span>-</span>
-            <span>50</span>
+            <span>{Math.ceil(discount)}</span>
             <span>%</span>
           </div>
           <img src={image} alt={title} className="object-cover h-full" />
@@ -46,15 +48,21 @@ const SaleItem: React.FC<SaleItemTypes> = ({ id, image, price, title }) => {
           <Typography
             variant="h5"
             color="white"
-            className="mb-6 font-bold leading-[1.5] text-ellipsis space-x-1"
+            className="font-bold leading-[1.5] space-x-1"
           >
             <span>$</span>
-            <span>{price}</span>
+            <span>{Math.ceil(finalPrice)}</span>
+          </Typography>
+          <Typography
+            variant="small"
+            className="mb-2 md:mb-3 leading-[1.5] space-x-1 text-red-700 line-through"
+          >
+            <span>$ {price}</span>
           </Typography>
           <Typography
             variant="h6"
             color="white"
-            className="mb-6 font-medium leading-[1.5] max-w-full text-ellipsis"
+            className="mb-2 md:mb-6 font-medium leading-[1.5] max-w-full truncate "
           >
             {title}
           </Typography>
