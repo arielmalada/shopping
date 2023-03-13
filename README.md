@@ -1,6 +1,6 @@
-# Shopping E-Commerce Page
+# Shopping E-Commerce Page (WORK IN PROGRESS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was hosted with [Github Pages](https://arielmalada.github.io/shopping/).
 
 ## Specification
 
