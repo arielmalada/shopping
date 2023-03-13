@@ -25,7 +25,7 @@ export interface ProductsTypes {
   limit: number;
 }
 
-export const getProduct = async (id: number) => {
+export const getProduct = async (id: string) => {
   try {
     const res: AxiosResponse<ProductTypes> = await get(`products/${id}`);
     return res;
