@@ -17,7 +17,7 @@ const DataSection: React.FC = () => {
         Math.round(productValue.price * productValue.discountPercentage * 0.01)
       : productValue?.price;
   return (
-    <div className="space-y-3">
+    <div className="col-span-12 space-y-3 lg:col-span-8">
       <Typography variant="h2">{productValue?.title}</Typography>
       <div>
         <div className="flex space-x-2">

@@ -4,6 +4,7 @@ import {
   CardHeader,
   CardBody,
   Typography,
+  CardFooter,
 } from "@material-tailwind/react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -19,19 +20,33 @@ type ProductItemTypes = {
 //#endregion
 
 //#region MAIN COMPONENTS
-const ProductItem: React.FC<ProductItemTypes> = ({ id, image, title, price }) => {
+const ProductItem: React.FC<ProductItemTypes> = ({
+  id,
+  image,
+  title,
+  price,
+}) => {
   return (
-    <Card className="min-h-[40vw] min-w-[40vw] md:min-w-0 md:col-span-3 md:min-h-0 ">
+    <Card className="min-h-[40vw] min-w-[40vw] md:min-w-0 md:col-span-3 md:min-h-0 px-auto">
       <Link to={`/detail/${id}`}>
-        <CardHeader color="blue" className="relative h-20 lg:h-56">
-          <img src={image} alt={title} className="object-cover w-full h-full" />
+        <CardHeader className="relative h-20 lg:h-56" floated={false}>
+          <img
+            src={image}
+            alt={title}
+            className="object-cover w-full h-full aspect-video"
+          />
         </CardHeader>
-        <CardBody className="text-center">
-          <Typography variant="h5" className="mb-2">
+        <CardBody className="mb-6 text-center">
+          <Typography variant="h4" className="line-clamp-2 max-h-16">
             {title}
           </Typography>
-          <div>{price}</div>
         </CardBody>
+        <CardFooter className="absolute left-0 right-0 w-12 px-0 py-2 mx-auto text-center bottom-2">
+          <Typography variant="h6" className="space-x-1">
+            <span>$</span>
+            <span>{price}</span>
+          </Typography>
+        </CardFooter>
       </Link>
     </Card>
   );
