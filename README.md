@@ -1,10 +1,9 @@
-# Shopping E-Commerce Page (WORK IN PROGRESS)
-
+# BidYuk! (WORK IN PROGRESS)
+an auction platform for community to solve auction problem that seller faces for their auction such as fake bid, closing auction at the same time, while still integrating with their social media
 This project was hosted with [Github Pages](https://arielmalada.github.io/shopping/).
 
 ## Specification
 
-- Amazon like product page
 - React Context for state management
 - Tailwindcss and Material UI for styling
 - Jest for testing
